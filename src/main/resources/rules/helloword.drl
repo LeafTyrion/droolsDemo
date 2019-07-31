@@ -1,0 +1,11 @@
+import com.example.drools.domain.Person
+import com.example.drools.service.PersonService
+
+ rule "introduce"
+    dialect "java"
+    when
+        $p:Person($p.getAge()==20)
+    then
+       String introduce="叫"+$p.getName()+"的"+$p.getSex()+"人今年"+$p.getAge()+"岁了";
+       $p.setIntroduce(introduce);
+ end
